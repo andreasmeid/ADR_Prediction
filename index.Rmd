@@ -114,7 +114,7 @@ options(scipen=9999999)
 ```
 
 class: title-slide, right, top
-background-image: url(img/ukhd_en.png)
+background-image: url(ukhd_en.png)
 background-position: 10% 75%, 75% 75%
 background-size: 20%, cover
 
@@ -302,7 +302,7 @@ exclude: true
 
 ---
 class: body-yellow
-background-image: url(img/DrugSymposium_Background.PNG)
+background-image: url(DrugSymposium_Background.png)
 
 ## What if ...
 
@@ -317,7 +317,7 @@ background-image: url(img/DrugSymposium_Background.PNG)
 
 <!-- 
 class: body-yellow
-background-image: url(img/DrugSymposium_Background.PNG)
+background-image: url(DrugSymposium_Background.png)
 -->
 
 
@@ -421,7 +421,7 @@ class: large <!--my-one-page-font-->
 
 ---
 class: body-yellow
-background-image: url(img/DrugSymposium_Background.PNG)
+background-image: url(DrugSymposium_Background.png)
 
 ## Challenge 1:  <br /> Heterogeneous data with <br /> different outcomes 
 
@@ -665,7 +665,7 @@ plot_grid(together_plot, separate_plot, ncol=2)
 
 ---
 class: body-yellow
-background-image: url(img/DrugSymposium_Background.PNG)
+background-image: url(DrugSymposium_Background.png)
 
 ## Challenge 2:  <br /> Imperfect <br />outcome classification 
 
@@ -762,7 +762,7 @@ plot_grid(together_plot_2, waterfall_plot_2, ncol=2)
 
 ---
 class: body-yellow
-background-image: url(img/DrugSymposium_Background.PNG)
+background-image: url(DrugSymposium_Background.png)
 
 ## Challenge 3:  <br /> Predictor uncertainty 
 
@@ -847,7 +847,7 @@ plot_grid(together_plot_3, waterfall_plot_3, ncol=2)
 
 ---
 class: body-yellow
-background-image: url(img/DrugSymposium_Background.PNG)
+background-image: url(DrugSymposium_Background.png)
 
 ## Challenge 4:  <br /> Heterogeneous <br /> populations 
 
@@ -942,7 +942,7 @@ plot_grid(together_plot_4, waterfall_plot_4, ncol=2)
 
 ---
 class: body-yellow
-background-image: url(img/DrugSymposium_Background.PNG)
+background-image: url(DrugSymposium_Background.png)
 
 ## Challenge 5:  <br /> Small samples 
 
@@ -1038,7 +1038,7 @@ plot_grid(together_plot_5, waterfall_plot_5, ncol=2)
 
 ---
 class: body-yellow
-background-image: url(img/DrugSymposium_Background.PNG)
+background-image: url(DrugSymposium_Background.png)
 
 ## Challenge 6:  <br /> Arbitrary choice of <br />modeling technique 
 
@@ -1054,7 +1054,7 @@ background-image: url(img/DrugSymposium_Background.PNG)
 
 ---
 class: body-yellow
-background-image: url(img/background06.PNG)
+background-image: url(background06.png)
 
 ## And now, at the end of <br />our journey,
 
@@ -1066,7 +1066,7 @@ how do we keep limitations to a minimum?
 ---
 # More ideas from inpatient models [19]
 
-![Limitations.](img/Syrowatka.png)
+![Syrowatka.](img/Syrowatka.PNG)
 
 
 ---
@@ -1074,7 +1074,7 @@ how do we keep limitations to a minimum?
 # Informed decision based on RWE
 
 .footnote[
-_nach Meid AD et al. Med Decis Making 2022._
+_according to Meid AD et al. Med Decis Making 2022._
 ]
 --
 
@@ -1185,7 +1185,7 @@ exclude:true
 
 ---
 class: body-yellow
-background-image: url(img/background06.PNG)
+background-image: url(background06.png)
 
 ## Thank you for <br /your attention and <br />have an interesting <br />group discussion
 

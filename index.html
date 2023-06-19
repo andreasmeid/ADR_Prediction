@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Individualizing   Benefit-Risk  Assessment</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="PD Dr. sc. hum. Andreas D. Meid" />
+    <script src="index_files/header-attrs/header-attrs.js"></script>
+    <link href="index_files/remark-css/default.css" rel="stylesheet" />
+    <meta name="description" content="Test"/>
+    <meta name="generator" content="xaringan and remark.js"/>
+    <meta name="github-repo" content="andreasmeid"/>
+    <meta name="twitter:title" content="Test Titel"/>
+    <meta name="twitter:description" content="Test"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta property="og:title" content="Test Titel"/>
+    <meta property="og:description" content="Test"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="article:author" content="Andreas Meid"/>
+    <link href="index_files/panelset/panelset.css" rel="stylesheet" />
+    <script src="index_files/panelset/panelset.js"></script>
+    <link href="index_files/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="index_files/tile-view/tile-view.js"></script>
+    <script src="index_files/clipboard/clipboard.min.js"></script>
+    <link href="index_files/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="index_files/shareon/shareon.min.js"></script>
+    <link href="index_files/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="index_files/xaringanExtra-shareagain/shareagain.js"></script>
+    <script src="index_files/xaringanExtra_fit-screen/fit-screen.js"></script>
+    <link href="index_files/tabwid/tabwid.css" rel="stylesheet" />
+    <script src="index_files/tabwid/tabwid.js"></script>
+    <script src="index_files/kePrint/kePrint.js"></script>
+    <link href="index_files/lightable/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/mytheme.css" type="text/css" />
+    <link rel="stylesheet" href="css/mytheme-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+class: title-slide, right, top
+background-image: url(img/ukhd_en.png)
+background-position: 10% 75%, 75% 75%
+background-size: 20%, cover
+
+.right-column[
+# Individualizing &lt;br /&gt; Benefit-Risk &lt;br /&gt;Assessment
+### Part II: Predicting &lt;br /&gt; Adverse Drug Reactions &lt;br /&gt; - a complex endeavor
+
+**PD Dr. sc. hum. Andreas D. Meid**&lt;br&gt;
+&lt;br&gt;
+Clinical Pharmacology and Pharmacoepidemiology &lt;br /&gt; Heidelberg University Hospital &lt;br&gt;&lt;br&gt;
+_International Drug Safety Symposium - Munich_ 22-06-2023
+]
+
+---
+# Status quo in ADE prediction
+&lt;!-- What are the challenges --&gt;
+
+![Limitations.](img/limitations.png)
+
+---
+# Two common admission stats
+
+
+
+Admissions for hypoglycemia and falls in Germany 2021 [destatis]:
+--
+.pull-left[
+
+
+&lt;img src="index_files/figure-html/hypo_plot-1.png" width="1080" /&gt;
+
+]
+--
+.pull-right[
+&lt;img src="index_files/figure-html/fall_plot-1.png" width="1080" /&gt;
+]
+
+
+---
+exclude: true
+
+# Let's start with a use-case: hypoglycemia prediction
+
+&gt; **Hypoglycemia** is the major limiting factor in optimal glycemic management for patients with diabetes
+
+&gt; Hypoglycemia occurs in 20-60% of patients with diabetes mellitus [1], with one in four diabetes-related **hospitalizations due to hypoglycemia** [2]
+
+&gt; The *American Diabetes Association* (ADA) reported in 2013 that greater attention must be focused on understanding which patients were at most **risk for hypoglycemia** [3]. `\(\rightarrow\)` balance reduction in hyperglycemia with hypoglycemia risk [4,5]
+
+&lt;!-- association of hypoglycemia with increased risk of vascular events and all-cause mortality --&gt;
+
+
+---
+exclude: true
+
+# Hypoglycemia prediction with inpatient data
+
+
+.panelset[
+.panel[.panel-name[Overview]
+
+&gt; Inclusion of routine biochemical **data**, available at the time of admission, can add prognostic value [6] 
+
+&gt; Examples were more complex (machine-learning) **models** did [7] or did not improve prediction [8]
+
+&gt; successfully applied to **risks** during hospitalization and for potentially following admissions [9]
+
+]
+
+.panel[.panel-name[Input variables [10] ]
+
+
+![:scale 50%](img/Zhang01.png)
+
+.footnote[_Zhang L et al. Front Public Health 2023;11:1044059._]
+]
+
+.panel[.panel-name[Modelling techniques [10] ]
+
+![:scale 50%](img/Zhang02.png)
+
+]
+]
+
+---
+exclude: true
+
+# Obstacles for hypoglycemia prediction from outpatient data
+
+&gt; Potential **risk factors** are known (also from the outpatient setting [11], e.g., 
+  + social status, 
+  + comorbidities, 
+  + age, 
+  + prior hypoglycemia
+  
+&gt; ), but no prediction model exists to guide interventions to lower hypoglycemia risk in predisposed patients (and other long-term consequences!)
+  
+&gt; which is maybe also due to **limitations in respective data sources** (e.g., not all outcomes accurately and completely captured [12])
+
+---
+# More common situation:
+
+&gt; Focus on large **target population**, e.g., older adults with polypharmacy, which is, however, very heterogeneous [13]
+
+&gt; "*Simple tools based on few* **medicine classes** *may not be effective in identifying high risk patients.*" [14] 
+
+&gt; Often considers risks of potentially inappropriate prescribing (e.g., OPERAM [15]) on a (core) **outcome set** of ADRs
+
+&gt; Efforts to automate **outcome definition** and increase its accuracy [16], because causality assessment is tedious and specific ADE-codes are hardly used [17]
+
+
+## Given the many efforts w/o groundbreaking success, what are typical challenges?
+
+---
+class: body-yellow
+background-image: url(img/DrugSymposium_Background.PNG)
+
+## What if ...
+
+&gt; ... we knew the truly true predictor-outcome relationships,
+
+&gt; how would the numerous obstacles and challenges &lt;br /&gt; in practice then worsen our predictive performance
+
+--
+
+## Let's take &lt;br /&gt; a journey &lt;br /&gt;from the &lt;br /&gt; different &lt;br /&gt;direction
+ 
+
+&lt;!-- 
+class: body-yellow
+background-image: url(img/DrugSymposium_Background.PNG)
+--&gt;
+
+
+
+
+---
+class: large &lt;!--my-one-page-font--&gt;
+
+# 7 major obstacles to overcome in practice
+
+1. ADR often defined as a mixture of separate outcomes
+
+2. Imperfectly classified outcome
+
+3. Predictor uncertainty (e.g., unmeasured variables, time-dependent changes)
+
+4. Heterogeneous populations (for development and validation)
+
+5. Small samples (e.g., for validation)
+
+6. Arbitrary choice of modeling technique
+
+7. Incomplete, inconsistent, and intransparent reporting
+
+
+---
+class: body-yellow
+background-image: url(img/DrugSymposium_Background.PNG)
+
+## Challenge 1:  &lt;br /&gt; Heterogeneous data with &lt;br /&gt; different outcomes 
+
+in
+
+&gt; mixed (sub-) populations: &lt;br /&gt;different frequencies of drug &lt;br /&gt;and other risk factors
+
+with varying
+
+&gt; "predictability": outcome frequency, &lt;br /&gt;drug-outcome association, &lt;br /&gt;remaining predictor strength
+
+
+---
+
+# Simulation framework
+
+
+.panelset[
+.panel[.panel-name[Setting [18]]
+
+&lt;!-- 
+&gt; Setting .footnote[_Meid AD et al. Clin Epidemiol 2020;12:1223-1234_]: 
+--&gt;
+
+  + **Medication** of interest (*trt*) with confounding by five continuous **predictors** (*age*, number of *drugs*/*prior hosp*italizations, two risk *score*s), *sex*, and three categorical *comed*ication indicators with additional treatment effect modulation
+  + Eight different binary **outcomes** (i.e., ADR-related hospitalization)
+
+![Framework](img/simulation_framework.jpg)
+
+
+]
+
+.panel[.panel-name[Data]
+
+
+&lt;div class="tabwid"&gt;&lt;style&gt;.cl-603669b8{}.cl-60222c82{font-family:'Arial';font-size:16pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-60222ca0{font-family:'Arial';font-size:14pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6028f080{margin:0;text-align:right;margin-left:auto;writing-mode: vertical-rl;transform: rotate(180deg);-ms-writing-mode:bt-lr;-webkit-writing-mode:vertical-rl;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-6028f094{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-60292032{width:0.752in;background-color:transparent;vertical-align: bottom;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-60292033{width:0.421in;background-color:transparent;vertical-align: bottom;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6029203c{width:0.54in;background-color:transparent;vertical-align: bottom;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-60292046{width:0.3in;background-color:transparent;vertical-align: bottom;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-60292047{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-60292050{width:0.421in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-60292051{width:0.54in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6029205a{width:0.3in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6029205b{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-60292064{width:0.421in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-60292065{width:0.54in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-60292066{width:0.3in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6029206e{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6029206f{width:0.421in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-60292078{width:0.54in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-60292082{width:0.3in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-60292083{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-60292084{width:0.421in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6029208c{width:0.54in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6029208d{width:0.3in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table data-quarto-disable-processing='true' class='cl-603669b8'&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;th class="cl-60292032"&gt;&lt;p class="cl-6028f080"&gt;&lt;span class="cl-60222c82"&gt;ID&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-60292033"&gt;&lt;p class="cl-6028f080"&gt;&lt;span class="cl-60222c82"&gt;trt&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-6029203c"&gt;&lt;p class="cl-6028f080"&gt;&lt;span class="cl-60222c82"&gt;age&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-60292046"&gt;&lt;p class="cl-6028f080"&gt;&lt;span class="cl-60222c82"&gt;sex&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-60292046"&gt;&lt;p class="cl-6028f080"&gt;&lt;span class="cl-60222c82"&gt;drugs&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-60292046"&gt;&lt;p class="cl-6028f080"&gt;&lt;span class="cl-60222c82"&gt;prior_hosp&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-60292046"&gt;&lt;p class="cl-6028f080"&gt;&lt;span class="cl-60222c82"&gt;score1&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-60292046"&gt;&lt;p class="cl-6028f080"&gt;&lt;span class="cl-60222c82"&gt;score2&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-60292046"&gt;&lt;p class="cl-6028f080"&gt;&lt;span class="cl-60222c82"&gt;comed1&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-60292046"&gt;&lt;p class="cl-6028f080"&gt;&lt;span class="cl-60222c82"&gt;comed2&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-60292046"&gt;&lt;p class="cl-6028f080"&gt;&lt;span class="cl-60222c82"&gt;comed3&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-60292046"&gt;&lt;p class="cl-6028f080"&gt;&lt;span class="cl-60222c82"&gt;Y.1&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-60292046"&gt;&lt;p class="cl-6028f080"&gt;&lt;span class="cl-60222c82"&gt;Y.2&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-60292046"&gt;&lt;p class="cl-6028f080"&gt;&lt;span class="cl-60222c82"&gt;Y.3&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-60292046"&gt;&lt;p class="cl-6028f080"&gt;&lt;span class="cl-60222c82"&gt;Y.4&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-60292046"&gt;&lt;p class="cl-6028f080"&gt;&lt;span class="cl-60222c82"&gt;Y.5&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-60292046"&gt;&lt;p class="cl-6028f080"&gt;&lt;span class="cl-60222c82"&gt;Y.6&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-60292046"&gt;&lt;p class="cl-6028f080"&gt;&lt;span class="cl-60222c82"&gt;Y.7&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-60292046"&gt;&lt;p class="cl-6028f080"&gt;&lt;span class="cl-60222c82"&gt;Y.8&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-60292047"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292050"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292051"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;61&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6029205b"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292064"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292065"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;60&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292066"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292066"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292066"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292066"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292066"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292066"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292066"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292066"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292066"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292066"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292066"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292066"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292066"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292066"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292066"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292066"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-60292047"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292050"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292051"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;64&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-60292047"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292050"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292051"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;60&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029205a"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6029206e"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;11,995&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029206f"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292078"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;60&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6029206e"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;11,996&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029206f"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292078"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;66&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6029206e"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;11,997&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029206f"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292078"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;69&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6029206e"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;11,998&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029206f"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292078"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;63&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6029206e"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;11,999&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029206f"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292078"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;68&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292082"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-60292083"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;12,000&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-60292084"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029208c"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;65&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029208d"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029208d"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029208d"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029208d"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029208d"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029208d"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029208d"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029208d"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029208d"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029208d"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029208d"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029208d"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029208d"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029208d"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029208d"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6029208d"&gt;&lt;p class="cl-6028f094"&gt;&lt;span class="cl-60222ca0"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+
+]
+
+.panel[.panel-name[Outcome frequencies]
+
+
+
+.pull-left[
+    
+
+&lt;table class="table" style="margin-left: auto; margin-right: auto;"&gt;
+&lt;caption&gt;Outcome frequency of composite outcome&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; Composite outcome (any Y1:Y8) &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; n &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Percentage &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7224 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 60.2 % &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4776 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 39.8 % &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+  ]
+--
+  .pull-right[
+
+
+&lt;table class="table" style="margin-left: auto; margin-right: auto;"&gt;
+&lt;caption&gt;Outcome frequencies of separate outcomes&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Separate outcome (Y1:Y8) &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Y &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; n &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Percentage &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Y.1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 596 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 5 % &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Y.2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 904 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 7.5 % &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Y.3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1727 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 14.4 % &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Y.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 998 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 8.3 % &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Y.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 280 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2.3 % &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Y.6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1735 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 14.5 % &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Y.7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 211 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1.8 % &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Y.8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 862 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 7.2 % &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+  
+  ]
+
+]
+
+.panel[.panel-name[Odds ratios]
+
+
+&lt;img src="index_files/figure-html/OR-1.png" width="1080" /&gt;
+
+]
+
+&lt;!-- 
+.panel[.panel-name[Performance]
+
+]--&gt;
+
+]
+
+
+
+---
+
+# Performance after first obstacle
+
+
+&lt;img src="index_files/figure-html/1_c-stat-1.png" width="1080" /&gt;
+
+
+---
+class: body-yellow
+background-image: url(img/DrugSymposium_Background.PNG)
+
+## Challenge 2:  &lt;br /&gt; Imperfect &lt;br /&gt;outcome classification 
+
+
+&gt; For simulation framework, &lt;br /&gt; use 90 % sensitivity and 95 % specificity.
+
+---
+
+# Performance after second obstacle
+
+
+
+
+&lt;img src="index_files/figure-html/2_c-stat-1.png" width="1080" /&gt;
+
+---
+class: body-yellow
+background-image: url(img/DrugSymposium_Background.PNG)
+
+## Challenge 3:  &lt;br /&gt; Predictor uncertainty 
+
+
+(e.g., unmeasured variables, time-dependent changes)
+
+
+&gt; For simulation framework, &lt;br /&gt; omit *score1* as an unmeasured variable and &lt;br /&gt; mimic time-dependent changes by removing &lt;br /&gt; effect-modulating comedications &lt;br /&gt; (*comed2* and *comed3*)
+
+
+---
+
+# Performance after third obstacle
+
+&lt;img src="index_files/figure-html/3_c-stat-1.png" width="1080" /&gt;
+
+
+---
+class: body-yellow
+background-image: url(img/DrugSymposium_Background.PNG)
+
+## Challenge 4:  &lt;br /&gt; Heterogeneous &lt;br /&gt; populations 
+
+
+(for development and validation) 
+
+
+&gt; For simulation framework, &lt;br /&gt; bootstrap from only four out of eight &lt;br /&gt; subpopulations of the simulated data.
+
+
+
+---
+
+# Performance after fourth obstacle
+
+
+&lt;img src="index_files/figure-html/4_c-stat-1.png" width="1080" /&gt;
+
+---
+class: body-yellow
+background-image: url(img/DrugSymposium_Background.PNG)
+
+## Challenge 5:  &lt;br /&gt; Small samples 
+
+
+(e.g., for validation)
+
+&gt; For simulation framework, reduce  &lt;br /&gt; development sample to a quarter of the initial size &lt;br /&gt;
+and validation sample to one eighth &lt;br /&gt; (*here*: 250 patients).
+
+---
+
+# Performance after fifth obstacle
+
+
+&lt;img src="index_files/figure-html/5_c-stat-1.png" width="1080" /&gt;
+
+---
+class: body-yellow
+background-image: url(img/DrugSymposium_Background.PNG)
+
+## Challenge 6:  &lt;br /&gt; Arbitrary choice of &lt;br /&gt;modeling technique 
+
+
+
+---
+class: body-yellow
+background-image: url(img/DrugSymposium_Background.PNG)
+
+## Challenge 7:  &lt;br /&gt; Incomplete, inconsistent, &lt;br /&gt; and intransparent &lt;br /&gt; reporting
+
+
+
+---
+class: body-yellow
+background-image: url(img/background06.PNG)
+
+## And now, at the end of &lt;br /&gt;our journey,
+
+how do we keep limitations to a minimum?
+
+![:scale 50%](img/decision02.png)
+
+
+---
+# More ideas from inpatient models [19]
+
+![Limitations.](img/Syrowatka.png)
+
+
+---
+
+# Informed decision based on RWE
+
+.footnote[
+_nach Meid AD et al. Med Decis Making 2022._
+]
+--
+
+  .pull-left[
+    ![:scale 75%](img/km_Apixa.gif)
+  ]
+--
+  .pull-right[
+    ![:scale 30%](img/km_Riva.gif)
+    ]
+
+
+
+---
+exclude:true
+
+# How would you define/select  
+
+  + patient inclusion criteria, 
+  + type of predictors to be considered, 
+  + methods of outcome ascertainment
+  + ...
+
+# to develop a risk score to predict  
+
+1. Any drug related hospital admission, 
+or particular ADRs such as 
+2. gastrointestinal bleeding, 
+3. acute kidney injury
+4. fracture
+5. delirium?
+
+
+---
+exclude:true
+# Suggestions for discussion
+
+1. Which (ADR) events are well predictable?
+  + Guided by a questionnaire
+
+2. Ways to improve the current approach or alternative strategies. 
+  + Two unconventional ideas to think about
+  
+
+---
+exclude:true
+
+# Please indicate predictable ADRs
+
+![Survey.](img/survey.png)
+
+---
+exclude:true
+# Two unconventional ideas to think about
+
+
+```
+## [1] "c-statistics w/o drug trt predictor: 0.65 (0.62 - 0.68)"
+```
+
+&gt; TB: Monitor those patients with 
+  + a generally increased risk of an event of interest 
+  + who are additionaly exposed to medication with a proven risk.
+
+&gt; ADM: If a drug is indespensable for the individual treatment, 
+  + then choose (among the possible options) the drug with the best (individual) benefit-risk ratio among various alternatives (by comparing predictions under different options)
+
+---
+exclude:true
+
+## Predicting individual drug risks
+
+&lt;table class="table" style="margin-left: auto; margin-right: auto;"&gt;
+&lt;caption&gt;Typical situation (re-structured outcome column)&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; ID &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Outcome with drug &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Outcome w/o drug &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Drug &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Age &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Disease x &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; ... &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 73 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 58 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 62 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 68 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+  + Group analysis (column-wise): Average treatment effect, formalized as `\(ATE = E [Y(1) - Y(0)]\)`
+
+
+  + Individual analysis (row-wise): Individual treatment effect , formalized as `\(ITE_{i} = E [Y*_{i} | X = x_{i}, Drug = 1] - E [Y*_{i} | X = x_{i}, Drug = 0]\)`
+
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;!-- `\(\rightarrow \text{etst}\)` --&gt;
+
+---
+exclude:true
+
+# Outlook on implementation
+
+![:scale 90%](img/vanCalster.png)
+
+---
+class: body-yellow
+background-image: url(img/background06.PNG)
+
+## Thank you for &lt;br /your attention and &lt;br /&gt;have an interesting &lt;br /&gt;group discussion
+
+
+---
+
+# Literature
+
+1. Li X et al. Curr Med Res Opin 2019;35:1885-1891
+2. Fu H et al. J Diabetes Complications 2014;28:477-81
+3. Seaquist ER et al. Diabetes Care 2013;36:1384-95
+4. ADA. Diabetes Care 2021;44:S73-S84
+5. Cosentino F et al. Eur Heart J 2020;41:255-323
+6. Stuart K et al. Diabet Med 2017;34:1385-1391.
+7. Ruan Y et al. Diabetes Care 2020;43:1504-1511.
+8. Li X et al. Curr Med Res Opin 2019;35:1885-1891.
+9. Misra-Hebert AD et al. J Diabetes Complications 2020;34:107490.
+10. Zhang L et al. Front Public Health 2023;11:1044059
+11. Zaccardi F et al Diabetes Obes Metab 2017;19:1371-1378.
+12. Loke YK &amp; Mattishent K. Diabetes Obes Metab 2017;19:1337-1338.
+13. Meid AD et al. BMJ Open 2021;11:e045572.
+14. Fahmi A et al. PLoS One 2023;18:e0281466.
+15. Blum MR et al. BMJ 2021;374:n1585.
+16. Zerah L et al. Age Ageing 2022;51:6430101.
+17. Yasrebi - de Kom IAR  et al. JAMIA 2023: 30:978–988.
+18. Meid AD et al. Clin Epidemiol 2020;12:1223-1234.
+19. Syrowatka A et al. Lancet Digit Health 2022;4: e137–48.
+20. Van Calster B et al. BMC Med 2023;21:70.
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "%current%",
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

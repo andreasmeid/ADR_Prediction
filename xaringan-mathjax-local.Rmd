@@ -1,0 +1,20 @@
+---
+title: "xaringan-mathjax-local"
+output:
+  xaringan::moon_reader:
+    chakra: 'libs/remark-latest.min.js'
+    lib_dir: 'libs'
+    mathjax: null
+    nature:
+      beforeInit: 'libs/local.js'
+---
+
+This is simple equation:
+
+`$$f(x) = \frac{a}{b} + c^2 +\int_g^{h}\sin\left(x\right)\text{d}{x}$$`
+
+$$ f(x) = \frac{a}{b} + c^2 +\int_g^{h}\sin\left(x\right)\text{d}{x} $$
+
+Inline formula `\\(\frac{\sin\left(x\right)}{x}\\`:  \\(\frac{\sin\left(x\right)}{x}\\).
+
+Inline formula with `$\frac{\sin\left(x\right)}{x}$`: $\frac{\sin\left(x\right)}{x}$.
